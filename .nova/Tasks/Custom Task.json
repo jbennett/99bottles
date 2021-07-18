@@ -1,0 +1,10 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "ruby test\/bottles_test.rb"
+    }
+  },
+  "identifier" : "9C7B9E92-3F19-4A4C-81DF-4DA44C8C89A2",
+  "openLogOnRun" : "start"
+}
