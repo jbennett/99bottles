@@ -4,34 +4,33 @@ class Bottles
     verses(99, 0)
   end
 
-  def verses(a, b)
-    (b..a).map { |x| verse(x) }.reverse.join("\n")
+  def verses(start_at, end_at)
+    (end_at..start_at).map { |number| verse(number) }.reverse.join("\n")
   end
 
-  def verse(x)
-    "#{quantity(x).capitalize} #{container(x)} of beer on the wall, #{quantity(x)} #{container(x)} of beer.\n" +
-    "#{action(x)}, #{quantity(successor(x))} #{container(successor(x))} of beer on the wall.\n"
+  def verse(number)
+    "#{quantity(number).capitalize} #{container(number)} of beer on the wall, #{quantity(number)} #{container(number)} of beer.\n" +
+    "#{action(number)}, #{quantity(successor(number))} #{container(successor(number))} of beer on the wall.\n"
   end
 
-  def successor(x)
-    BottleNumber.new(x).successor
+  def successor(number)
+    BottleNumber.new(number).successor
   end
 
-  def action(x)
-    BottleNumber.new(x).action
+  def action(number)
+    BottleNumber.new(number).action
   end
 
-
-  def quantity(x)
-    BottleNumber.new(x).quantity
+  def quantity(number)
+    BottleNumber.new(number).quantity
   end
 
-  def container(x)
-    BottleNumber.new(x).container
+  def container(number)
+    BottleNumber.new(number).container
   end
 
-  def pronoun(x)
-    BottleNumber.new(x).pronoun
+  def pronoun(number)
+    BottleNumber.new(number).pronoun
   end
 end
 
@@ -52,7 +51,7 @@ class BottleNumber
 
   def action
     if number == 0
-      "Go to the store and buy some more"
+      'Go to the store and buy some more'
     else
       "Take #{pronoun} down and pass it around"
     end
@@ -60,7 +59,7 @@ class BottleNumber
 
   def quantity
     if number == 0
-      "no more"
+      'no more'
     else
       number.to_s
     end
@@ -68,17 +67,17 @@ class BottleNumber
 
   def container
     if number == 1
-      "bottle"
+      'bottle'
     else
-      "bottles"
+      'bottles'
     end
   end
 
   def pronoun
     if number == 1
-      "it"
+      'it'
     else
-      "one"
+      'one'
     end
   end
 end
